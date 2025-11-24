@@ -21,7 +21,14 @@ watch(page, async () => {
     )
     .then((res) => res.data);
 });
+
 console.log(products.value);
+
+function changePage(newPage) {
+  if (newPage < 1) return;
+  if (newPage > products.value.pages) return;
+  page.value = newPage;
+}
 </script>
 
 <template>
@@ -34,7 +41,11 @@ console.log(products.value);
       />
     </div>
     <div class="pagination">
-      <Pagination />
+      <Pagination
+        :page="page"
+        :pages="products.pages"
+        @change-page="changePage"
+      />
     </div>
   </main>
 </template>
