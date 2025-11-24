@@ -1,14 +1,9 @@
 <script setup lang="ts">
-import HomeView from "./views/HomeView.vue";
+import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <Suspense>
-    <template #default>
-      <HomeView />
-    </template>
-    <template #fallback> Loading... </template>
-  </Suspense>
+  <RouterView />
 </template>
 
 <style scoped></style>
