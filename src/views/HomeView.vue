@@ -1,6 +1,16 @@
 <script setup>
 import Pagination from "@/components/Pagination.vue";
 import ProductCard from "@/components/Product.vue";
+import axios from "axios";
+
+const products = ref([]);
+
+products.value = await axios
+  .get("http://localhost:3000/products")
+  .then((res) => {
+    res.data;
+  });
+console.log(products.value);
 </script>
 
 <template>
