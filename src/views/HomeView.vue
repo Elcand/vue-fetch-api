@@ -1,16 +1,26 @@
 <script setup>
 import Pagination from "@/components/Pagination.vue";
 import ProductCard from "@/components/Product.vue";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import axios from "axios";
 
 const products = ref([]);
+const page = ref(1);
+const limit = ref(12);
 
 products.value = await axios
-  .get("http://localhost:3000/products")
-  .then((res) => {
-    return res.data;
-  });
+  .get(
+    `http://localhost:3000/products?_page=${page.value}&_per_page=${limit.value}`
+  )
+  .then((res) => res.data);
+
+watch(page, async () => {
+  products.value = await axios
+    .get(
+      `http://localhost:3000/products?_page=${page.value}&_per_page=${limit.value}`
+    )
+    .then((res) => res.data);
+});
 console.log(products.value);
 </script>
 
@@ -18,7 +28,7 @@ console.log(products.value);
   <main>
     <div class="product-grid">
       <ProductCard
-        v-for="(product, index) in products"
+        v-for="(product, index) in products.data"
         :key="index"
         :product="product"
       />
