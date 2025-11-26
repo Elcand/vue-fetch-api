@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import axios from "axios";
+import ProductForm from "@/components/ProductForm.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -39,6 +40,7 @@ async function deleteProduct() {
     </div>
 
     <div v-else class="product-detail">
+      <ProductForm />
       <!-- Product Card -->
       <div class="product-card">
         <div class="image-container">

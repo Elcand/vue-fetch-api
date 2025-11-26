@@ -4,6 +4,7 @@ import ProductCard from "@/components/ProductCard.vue";
 import Loading from "@/components/Loading.vue";
 import { onMounted, ref, watch, watchEffect } from "vue";
 import axios from "axios";
+import ProductForm from "@/components/ProductForm.vue";
 
 const products = ref([]);
 const page = ref(1);
@@ -32,6 +33,15 @@ function changePage(newPage) {
   if (newPage > products.value.pages) return;
   page.value = newPage;
 }
+
+async function createProduct(product) {
+  try {
+    await axios.post("http://localhost:3000/products", product);
+    fetchData();
+  } catch (err) {
+    console.log(err);
+  }
+}
 </script>
 
 <template>
@@ -39,6 +49,7 @@ function changePage(newPage) {
     <Loading />
   </div>
   <main v-else>
+    <ProductForm @create-product="createProduct" />
     <div class="product-grid">
       <ProductCard
         v-for="(product, index) in products.data"
