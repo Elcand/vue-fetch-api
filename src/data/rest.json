@@ -22,18 +22,18 @@
       "image": "https://placehold.jp/150x150.png"
     },
     {
-      "id": "12",
       "title": "Ultra-Thin Laptop Stand",
       "description": "Elevate your laptop for ergonomic use with this ultra-thin and portable laptop stand.",
-      "price": 29.99,
-      "image": "https://placehold.jp/150x150.png"
+      "price": 500,
+      "image": "https://upload.jaknot.com/2025/05/images/products/50c7b4/original/mc-laptop-stand-aluminium-foldable-adjustable-non-slip-11-173-inch-ls515.jpg",
+      "id": "12"
     },
     {
-      "id": "13",
       "title": "Smart Thermostat",
       "description": "Control and monitor your home's temperature with this intelligent and energy-efficient smart thermostat.",
-      "price": 129.99,
-      "image": "https://placehold.jp/150x150.png"
+      "price": 50000000000000000,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/Nest_Diamond_Thermostat.jpg",
+      "id": "13"
     },
     {
       "id": "14",
