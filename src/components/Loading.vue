@@ -11,8 +11,8 @@
 
 <script>
 export default {
-  name: 'Loading'
-}
+  name: "Loading",
+};
 </script>
 
 <style scoped>
@@ -30,7 +30,7 @@ export default {
 .dot {
   width: 16px;
   height: 16px;
-  background-color: #4f46e5;
+  background-color: #bdbcc3;
   border-radius: 50%;
   animation: bounce 0.6s infinite alternate;
 }
