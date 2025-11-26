@@ -23,7 +23,7 @@ onMounted(async () => {
     <h2>{{ product.title }}</h2>
     <img :src="product.image" :alt="product.name" class="product-image" />
     <p>{{ product.description }}</p>
-    <p>{{ product.price }}</p>
+    <p>Rp {{ product.price }}</p>
     <router-link to="/" class="back-button">Back</router-link>
   </div>
 </template>
