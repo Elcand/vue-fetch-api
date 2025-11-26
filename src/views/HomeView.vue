@@ -1,6 +1,6 @@
 <script setup>
 import Pagination from "@/components/Pagination.vue";
-import ProductCard from "@/components/Product.vue";
+import ProductCard from "@/components/ProductCard.vue";
 import Loading from "@/components/Loading.vue";
 import { onMounted, ref, watch, watchEffect } from "vue";
 import axios from "axios";
