@@ -363,20 +363,6 @@
       "description": "Effortlessly heat and cook your meals with this compact countertop microwave featuring multiple cooking presets.",
       "price": 79.99,
       "image": "https://placehold.jp/150x150.png"
-    },
-    {
-      "id": "61",
-      "title": "fetch api",
-      "description": "learn add api",
-      "price": 0,
-      "image": "https://placehold.jp/150x150.png"
-    },
-    {
-      "id": "62",
-      "title": "test",
-      "description": "test",
-      "price": 0,
-      "image": "https://placehold.jp/150x150.png"
     }
   ]
 }
