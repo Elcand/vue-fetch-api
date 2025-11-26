@@ -1,6 +1,7 @@
 <script setup>
 import Pagination from "@/components/Pagination.vue";
 import ProductCard from "@/components/Product.vue";
+import Loading from "@/components/Loading.vue";
 import { onMounted, ref, watch } from "vue";
 import axios from "axios";
 
@@ -8,13 +9,28 @@ const products = ref([]);
 const page = ref(1);
 const limit = ref(12);
 const API_URL = `http://localhost:3000/products?_page=${page.value}&_per_page=${limit.value}`;
+const isLoading = ref(true);
 
 onMounted(async () => {
-  products.value = await axios.get(API_URL).then((res) => res.data);
+  try {
+    products.value = await axios.get(API_URL).then((res) => res.data);
+    isLoading.value = false;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    isLoading.value = false;
+  }
 });
 
 watch(page, async () => {
-  products.value = await axios.get(API_URL).then((res) => res.data);
+  try {
+    isLoading.value = true;
+    products.value = await axios.get(API_URL).then((res) => res.data);
+  } catch (err) {
+    console.log(err);
+  } finally {
+    isLoading.value = false;
+  }
 });
 
 function changePage(newPage) {
@@ -25,7 +41,10 @@ function changePage(newPage) {
 </script>
 
 <template>
-  <main>
+  <div v-if="isLoading">
+    <Loading />
+  </div>
+  <main v-else>
     <div class="product-grid">
       <ProductCard
         v-for="(product, index) in products.data"
